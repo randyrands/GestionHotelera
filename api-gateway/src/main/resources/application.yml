@@ -1,0 +1,36 @@
+spring:
+ application:
+  name: api-gateway
+
+ cloud:
+  loadbalancer:
+   enabled: true
+  gateway:
+   server:
+    webflux:
+     routes:
+      - id: ms-reservaciones #aqui va el nombre del msv
+        uri: lb://ms-reservaciones #aqui va el nombre del msv
+        predicates:
+         - Path=/api/reservaciones/** #Esta es la ruta a la cual se accedera
+        filters:
+         - StripPrefix=2
+      - id: ms-habitaciones #aqui va el nombre del msv
+        uri: lb://ms-habitaciones #aqui va el nombre del msv
+        predicates:
+         - Path=/api/habitaciones/** #Esta es la ruta a la cual se accedera
+        filters:
+         - StripPrefix=2
+      - id: ms-huespedes #aqui va el nombre del msv
+        uri: lb://ms-huespedes #aqui va el nombre del msv
+        predicates:
+         - Path=/api/huespedes/** #Esta es la ruta a la cual se accedera
+        filters:
+         - StripPrefix=2
+server:
+ port: 8090
+
+eureka:
+ client:
+  service-url:
+   defaultZone: http://localhost:8761/eureka

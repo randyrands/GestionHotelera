@@ -14,6 +14,6 @@ public interface CommonService <RQ, RS>{
 	
 	RS eliminar(Long id);
 	 // Este es el método específico que no está en CommonService
-    boolean tipoIsPresent(Long id);
+   // boolean tipoIsPresent(Long id);
 
 }

@@ -1,5 +1,7 @@
 package com.terry.commons.dto;
 
+import java.math.BigDecimal;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -15,7 +17,7 @@ public record HabitacionRequest(
 		String descripcion,
 		
 		@NotNull(message = "El precio es requerido")
-		Double precio,
+		BigDecimal  precio,
 		
 		@NotNull(message = "La capacidad es requerida")
 		Long capacidad,

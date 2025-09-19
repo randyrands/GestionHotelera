@@ -80,13 +80,6 @@ public class HabitacionServiceImpl implements HabitacionService {
 			habitacionRepository.deleteById(id);
 			return habitacionMapper.entityToResponse(habitacion);
 	}
-
-	@Override
-	public boolean tipoIsPresent(Long id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	//Verificacion de Commit
+	
 
 }

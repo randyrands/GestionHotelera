@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.terry.commons.controllers.CommonController;
 import com.terry.commons.dto.HuespedRequest;
 import com.terry.commons.dto.HuespedResponse;
-import com.terry.huespedes.services.HuespedService;
+import com.terry.huespedes.services.HuespedServiceImpl;
 
 
 
@@ -12,9 +12,9 @@ import com.terry.huespedes.services.HuespedService;
 
 
 @RestController
-public class HuespedController extends CommonController<HuespedRequest, HuespedResponse, HuespedService>{
+public class HuespedController extends CommonController<HuespedRequest, HuespedResponse, HuespedServiceImpl>{
 
-	public HuespedController(HuespedService service) {
+	public HuespedController(HuespedServiceImpl service) {
 		super(service);
 		// TODO Auto-generated constructor stub
 	}

@@ -12,6 +12,6 @@ import com.terry.commons.dto.HabitacionResponse;
 public interface HabitacionClient {
 
     @GetMapping("/{id}")
-    HabitacionResponse getHabitacionById(@PathVariable("id") String id);
+    HabitacionResponse getHabitacionXById(@PathVariable Long id);
 
 }

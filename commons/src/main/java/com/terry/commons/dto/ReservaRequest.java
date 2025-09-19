@@ -1,5 +1,6 @@
 package com.terry.commons.dto;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
@@ -22,14 +23,14 @@ public record ReservaRequest(
 		Integer noches,
 		
 		@NotNull(message = "El total es requerido")
-		Double total,
+		BigDecimal total,
 		
 		@NotBlank(message = "El estado es requerido")
 		String estado,
 		@NotNull(message = "El Huesped es requerido")
-		Set<String> idHuespedes,
+		Long idHuesped,
 		@NotNull(message = "La habitacion es requerida")
-		Set<String> idHabitaciones
+		Set<Long> idHabitaciones
 		
 		
 		) {

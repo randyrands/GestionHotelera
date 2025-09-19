@@ -25,54 +25,50 @@ import com.nimbusds.jwt.SignedJWT;
 @Service
 public class AuthServiceImpl implements AuthService {
 
-	private final UserDetailsService userDetailsService;
-	private final RSAKey rsaKey;
-	
-	
-	public AuthServiceImpl(UserDetailsService userDetailsService, JWKSource<SecurityContext> jwkSource) {
-		this.userDetailsService = userDetailsService;
-		try {
-			
-			JWKSelector jwkSelector = new JWKSelector(
-					new JWKMatcher.Builder().keyType(KeyType.RSA).build()
-					);
-			var jwks = jwkSource.get(jwkSelector, null);
-			if(jwks == null || jwks.isEmpty()) {
-				throw new RuntimeException("No se pudo obtener la clave RSA");
-			}
-			this.rsaKey =(RSAKey) jwks.get(0);
-		
-		}catch(Exception e) {
-			throw new RuntimeException("No se puedo obtener la clave RSA");
-		}
-	}
+    private final UserDetailsService userDetailsService;
+    private final RSAKey rsaKey;
 
+    public AuthServiceImpl(UserDetailsService userDetailsService, JWKSource<SecurityContext> jwkSource) {
+        this.userDetailsService = userDetailsService;
+        try {
+            JWKSelector jwkSelector = new JWKSelector(
+                    new JWKMatcher.Builder().keyType(KeyType.RSA).build()
+            );
+            var jwks = jwkSource.get(jwkSelector, null);
+            if (jwks == null || jwks.isEmpty()) {
+                throw new RuntimeException("No se pudo obtener la clave RSA");
+            }
+            this.rsaKey = (RSAKey) jwks.get(0);
 
-	@Override
-	public String authenticate(String username, String password) throws Exception {
-		UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-		if(userDetails == null|| !new BCryptPasswordEncoder().matches(password, userDetails.getPassword())) {
-			throw new RuntimeException("Credenciales inválidas");
-		}
-		Instant now = Instant.now();
-		JWTClaimsSet claims = new JWTClaimsSet.Builder()
-				.issuer("http://localhost:9000")
-				.subject(userDetails.getUsername())
-				.issueTime(Date.from(now))
-				.expirationTime(Date.from(now.plusSeconds(3600)))
-				.jwtID(UUID.randomUUID().toString())
-				.claim("roles", userDetails.getAuthorities().stream()
-						.map(authority -> authority.getAuthority())
-						.toList()
-						)
-				.build();
-		
-		SignedJWT signedJWT = new SignedJWT(
-				new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(rsaKey.getKeyID()).build(), claims);
-			JWSSigner signer = new RSASSASigner(rsaKey.toPrivateKey());
-			signedJWT.sign(signer);
-			return signedJWT.serialize();
-	}
-	
-	
+        } catch (Exception e) {
+            throw new RuntimeException("No se puedo obtener la clave RSA");
+        }
+    }
+
+    @Override
+    public String authenticate(String username, String password) throws Exception {
+        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+        if (userDetails == null || !new BCryptPasswordEncoder().matches(password, userDetails.getPassword())) {
+            throw new RuntimeException("Credenciales inválidas");
+        }
+
+        Instant now = Instant.now();
+        JWTClaimsSet claims = new JWTClaimsSet.Builder()
+                .issuer("http://localhost:9000")
+                .subject(userDetails.getUsername())
+                .issueTime(Date.from(now))
+                .expirationTime(Date.from(now.plusSeconds(3600)))
+                .jwtID(UUID.randomUUID().toString())
+                .claim("roles", userDetails.getAuthorities().stream()
+                        .map(authority -> authority.getAuthority())
+                        .toList()
+                )
+                .build();
+
+        SignedJWT signedJWT = new SignedJWT(
+                new JWSHeader.Builder(JWSAlgorithm.RS256).keyID(rsaKey.getKeyID()).build(), claims);
+        JWSSigner signer = new RSASSASigner(rsaKey.toPrivateKey());
+        signedJWT.sign(signer);
+        return signedJWT.serialize();
+    }
 }

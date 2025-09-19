@@ -1,4 +1,4 @@
-package com.terry.oauth.entities;
+package com.terry.authorization.entities;
 
 import java.util.Set;
 

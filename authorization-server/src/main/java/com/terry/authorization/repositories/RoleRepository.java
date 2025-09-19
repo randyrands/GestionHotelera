@@ -1,14 +1,15 @@
-package com.terry.oauth.repositories;
+package com.terry.authorization.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.terry.oauth.entities.Rol;
+import com.terry.authorization.entities.Rol;
+
 import java.util.Optional;
 
 
 @Repository
-public interface RolRepository extends JpaRepository<Rol, Long>{
+public interface RoleRepository extends JpaRepository<Rol, Long>{
 	
 	Optional<Rol> findByNombre(String nombre);
 

@@ -1,9 +1,9 @@
-package com.terry.oauth.services;
+package com.terry.authorization.services;
 
 import java.util.Set;
 
-import com.terry.oauth.dto.UsuarioRequest;
-import com.terry.oauth.dto.UsuarioResponse;
+import com.terry.authorization.dto.UsuarioRequest;
+import com.terry.authorization.dto.UsuarioResponse;
 
 public interface UsuarioService {
 	

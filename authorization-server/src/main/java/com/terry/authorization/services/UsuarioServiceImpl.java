@@ -1,4 +1,4 @@
-package com.terry.oauth.services;
+package com.terry.authorization.services;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -7,23 +7,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.terry.oauth.dto.UsuarioRequest;
-import com.terry.oauth.dto.UsuarioResponse;
-import com.terry.oauth.entities.Rol;
-import com.terry.oauth.entities.Usuario;
-import com.terry.oauth.repositories.RolRepository;
-import com.terry.oauth.repositories.UsuarioRepository;
+import com.terry.authorization.dto.UsuarioRequest;
+import com.terry.authorization.dto.UsuarioResponse;
+import com.terry.authorization.entities.Rol;
+import com.terry.authorization.entities.Usuario;
+import com.terry.authorization.repositories.RoleRepository;
+import com.terry.authorization.repositories.UserRepository;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService{
 	
-	private final UsuarioRepository usuarioRepository;
+	private final UserRepository usuarioRepository;
 	
-	private final RolRepository rolRepository;
+	private final RoleRepository rolRepository;
 	
 	private final PasswordEncoder passwordEncoder;
 
-	public UsuarioServiceImpl(UsuarioRepository usuarioRepository, RolRepository rolRepository,
+	public UsuarioServiceImpl(UserRepository usuarioRepository, RoleRepository rolRepository,
 			PasswordEncoder passwordEncoder) {
 		this.usuarioRepository = usuarioRepository;
 		this.rolRepository = rolRepository;

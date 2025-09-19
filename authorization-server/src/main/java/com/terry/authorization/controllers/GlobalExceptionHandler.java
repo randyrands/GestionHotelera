@@ -1,4 +1,4 @@
-package com.terry.oauth.controllers;
+package com.terry.authorization.controllers;
 
 import java.util.Map;
 import java.util.NoSuchElementException;

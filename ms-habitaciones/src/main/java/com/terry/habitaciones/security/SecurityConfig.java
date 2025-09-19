@@ -10,11 +10,11 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 	
 	@Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(exchange -> exchange
-            	.anyRequest().authenticated()
+            	.anyRequest().permitAll()  // Temporalmente permitir todas las solicitudes para testing
             )
             .oauth2ResourceServer(oauth2 -> oauth2
                     .jwt(Customizer.withDefaults()));

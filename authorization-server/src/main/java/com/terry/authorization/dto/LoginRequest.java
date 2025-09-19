@@ -1,4 +1,4 @@
-package com.terry.oauth.dto;
+package com.terry.authorization.dto;
 
 public record LoginRequest(
 		String username,

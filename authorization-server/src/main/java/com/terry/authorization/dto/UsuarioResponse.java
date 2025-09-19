@@ -1,4 +1,4 @@
-package com.terry.oauth.dto;
+package com.terry.authorization.dto;
 
 import java.util.Set;
 

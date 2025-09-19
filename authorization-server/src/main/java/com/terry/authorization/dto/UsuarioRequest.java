@@ -1,4 +1,4 @@
-package com.terry.oauth.dto;
+package com.terry.authorization.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

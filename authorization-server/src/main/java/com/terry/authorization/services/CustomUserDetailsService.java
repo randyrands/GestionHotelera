@@ -1,12 +1,12 @@
-package com.terry.oauth.services;
+package com.terry.authorization.services;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.terry.oauth.entities.Usuario;
-import com.terry.oauth.repositories.UsuarioRepository;
+import com.terry.authorization.entities.Usuario;
+import com.terry.authorization.repositories.UserRepository;
 
 import java.util.stream.Collectors;
 
@@ -16,9 +16,9 @@ import org.springframework.security.core.userdetails.User;
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 	
-	private final UsuarioRepository usuarioRepository;
+	private final UserRepository usuarioRepository;
 
-	public CustomUserDetailsService(UsuarioRepository usuarioRepository) {
+	public CustomUserDetailsService(UserRepository usuarioRepository) {
 		this.usuarioRepository = usuarioRepository;
 	}
 

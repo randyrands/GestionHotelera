@@ -1,4 +1,4 @@
-package com.terry.oauth.security;
+package com.terry.authorization.configuration;
 
 import java.util.List;
 

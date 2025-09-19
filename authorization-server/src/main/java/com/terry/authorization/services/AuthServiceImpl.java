@@ -1,4 +1,4 @@
-package com.terry.oauth.services;
+package com.terry.authorization.services;
 
 import java.time.Instant;
 import java.util.Date;

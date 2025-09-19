@@ -1,15 +1,15 @@
-package com.terry.oauth.repositories;
+package com.terry.authorization.repositories;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.terry.oauth.entities.Usuario;
+import com.terry.authorization.entities.Usuario;
 
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
+public interface UserRepository extends JpaRepository<Usuario, Long>{
 	
 	Optional<Usuario> findByUsername(String username);
 	

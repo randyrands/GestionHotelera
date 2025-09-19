@@ -1,4 +1,4 @@
-package com.terry.oauth.controllers;
+package com.terry.authorization.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.terry.oauth.dto.LoginRequest;
-import com.terry.oauth.dto.UsuarioRequest;
-import com.terry.oauth.dto.UsuarioResponse;
-import com.terry.oauth.services.AuthService;
-import com.terry.oauth.services.UsuarioService;
+import com.terry.authorization.dto.LoginRequest;
+import com.terry.authorization.dto.UsuarioRequest;
+import com.terry.authorization.dto.UsuarioResponse;
+import com.terry.authorization.services.AuthService;
+import com.terry.authorization.services.UsuarioService;
 
 import jakarta.validation.Valid;
 

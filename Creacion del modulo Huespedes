@@ -1,0 +1,40 @@
+<div class="content">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+      <div class="card">
+        <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg" class="card-img-top" alt="Auriculares inalámbricos">
+        <div class="card-body">
+          <h5 class="card-title">Auriculares inalámbricos</h5>
+          <p class="card-text">Auriculares de alta calidad con cancelación de ruido y diseño ergonómico.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg" class="card-img-top" alt="Teclado mecánico">
+        <div class="card-body">
+          <h5 class="card-title">Teclado mecánico</h5>
+          <p class="card-text">Teclado mecánico con retroiluminación RGB y teclas programables.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg" class="card-img-top" alt="Smartphone de última generación">
+        <div class="card-body">
+          <h5 class="card-title">Smartphone de última generación</h5>
+          <p class="card-text">Smartphone con cámara de alta resolución y procesador de última tecnología.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg" class="card-img-top" alt="Smartwatch deportivo">
+        <div class="card-body">
+          <h5 class="card-title">Smartwatch deportivo</h5>
+          <p class="card-text">Smartwatch con monitoreo de actividad física y notificaciones inteligentes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -77,18 +77,6 @@ public class HuespedServiceImpl implements HuespedService {
 			huespedRepository.deleteById(id);
 			return huespedMapper.entityToResponse(huesped);
 	}
-
-	@Override
-	public boolean tipoIsPresent(Long id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	
-
-
-
-
 	
 
 }

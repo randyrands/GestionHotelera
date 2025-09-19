@@ -20,7 +20,7 @@ public class HabitacionMapper extends CommonMapper<HabitacionRequest, Habitacion
 		}
 		
 			return new HabitacionResponse(
-					entity.getId(),
+					entity.getIdHabitacion(),
 					entity.getNumero(),
 					entity.getTipo(),
 					entity.getDescripcion(),

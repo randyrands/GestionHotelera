@@ -1,5 +1,7 @@
 package com.terry.habitaciones.models;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,7 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "HABITACIONES")
@@ -17,8 +18,8 @@ public class Habitacion {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="HABITACIONES_SEQ")
 	@SequenceGenerator(name ="HABITACIONES_SEQ", sequenceName = "HABITACIONES_SEQ", allocationSize =1)
 	
-	@Column(name = "ID")
-	private Long id;
+	@Column(name = "ID_HABITACION")
+	private Long idHabitacion;
 	
 	
 	@Column(name ="NUMERO", unique =true)
@@ -33,21 +34,22 @@ public class Habitacion {
 
 
 	@Column(name= "PRECIO")
-	private Double precio;
+	private BigDecimal precio;
 
-	@NotNull
 	@Column(name= "CAPACIDAD")
 	private Long capacidad;
 	
 	@Column(name= "ESTADO")
 	private String estado;
 
-	public Long getId() {
-		return id;
+
+
+	public Long getIdHabitacion() {
+		return idHabitacion;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdHabitacion(Long idHabitacion) {
+		this.idHabitacion = idHabitacion;
 	}
 
 	public Long getNumero() {
@@ -74,11 +76,11 @@ public class Habitacion {
 		this.descripcion = descripcion;
 	}
 
-	public Double getPrecio() {
+	public BigDecimal getPrecio() {
 		return precio;
 	}
 
-	public void setPrecio(Double precio) {
+	public void setPrecio(BigDecimal precio) {
 		this.precio = precio;
 	}
 
@@ -97,10 +99,4 @@ public class Habitacion {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-
-
-
-	
-
-
 }

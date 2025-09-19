@@ -16,7 +16,7 @@ public class Huesped {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="HUESPEDES_SEQ")
 	@SequenceGenerator(name ="HUESPEDES_SEQ", sequenceName = "HUESPEDES_SEQ", allocationSize =1)
 	
-	@Column(name = "ID")
+	@Column(name = "ID_HUESPED")
 	private Long id;
 	
 	
